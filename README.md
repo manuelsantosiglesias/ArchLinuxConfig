@@ -1,0 +1,2 @@
+# ArchLinuxConfig
+Configuraciones de archlinux
