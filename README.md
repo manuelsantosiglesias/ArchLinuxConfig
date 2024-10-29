@@ -189,13 +189,23 @@ Por defecto viene target en el tema, si queremo settarget añadir a la lista y c
 
 ```
 # Settarget
-function settarget(){
-    if [ $# -eq 1 ]; then
-        echo $1 > /tmp/target
-    elif [ $# -gt 2 ]; then
-        echo "settarget [IP] [NAME] | settarget [IP]"
+function settarget() {
+    local FILE=/tmp/target
+
+    if [ $# -eq 0 ]; then
+        if [ -e "$FILE" ]; then
+            cat "$FILE"
+        else
+            echo "No Target"
+        fi
+    elif [ "$1" == "reset" ]; then
+        rm -f "$FILE" && echo "Target reset." || echo "No target to reset."
+    elif [ $# -eq 1 ]; then
+        echo "$1" > "$FILE"
+    elif [ $# -eq 2 ]; then
+        echo "$1 $2" > "$FILE"
     else
-        echo $1 $2 > /tmp/target
+        echo "Usage: settarget [IP] [NAME] | settarget [IP] | settarget reset"
     fi
 }
 ```
