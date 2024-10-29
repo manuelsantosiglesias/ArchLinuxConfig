@@ -139,7 +139,7 @@ function settarget() {
         else
             echo "No Target"
         fi
-    elif [ "$1" == "reset" ]; then
+    elif [ "$1" = "reset" ]; then
         rm -f "$FILE" && echo "Target reset." || echo "No target to reset."
     elif [ $# -eq 1 ]; then
         echo "$1" > "$FILE"
