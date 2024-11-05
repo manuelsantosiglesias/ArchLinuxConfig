@@ -322,8 +322,34 @@ Por último ahora aparecería sin puntos la IP, para ello
 
 sudo pacman -S ttf-nerd-fonts-symbols
 
+# Instalación de blackarch
+
+```
+curl -O https://blackarch.org/strap.sh
+echo 76363d41bd1caeb9ed2a0c984ce891c8a6075764 strap.sh | sha1sum -c
+chmod +x strap.sh
+sudo ./strap.sh
+sudo pacman -Syu
+```
+
+Comandos Pacman
+```
+To list all of the available tools, run
+sudo pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u
+
+To install a category of tools, run
+sudo pacman -S blackarch-<category>
+
+To see the blackarch categories, run
+sudo pacman -Sg | grep blackarch
+
+To search for a specific package, run
+pacman -Ss <package_name>
+```
+
+# Instalación de herramientas generales
 
 
 📒 Notas finales
 -----
-Nada destacable
+Instalar varias herramientas; añadir listado de herramientas comunes nmap, crackmapexec, bloodhound, etc...
