@@ -349,7 +349,140 @@ pacman -Ss <package_name>
 
 # Instalación de herramientas generales
 
+- **Pipx**
+Necesitamos pipx para instalar de manera sencilla algunas herramientas
+```
+sudo pacman -S python-pip
+sudo pacman -S python-pipx
+```
+
+- **Crackmapexec**
+Instalamos crackmap exec a través de pipx para evitar fallos, tras la instalación crackmapexec y cme deberían estar disponibles
+```
+pipx ensurepath
+pipx install git+https://github.com/Porchetta-Industries/CrackMapExec.git
+```
+
+- **Impacket**
+Habiendo instalado pipx, instalamos desde el repositorio
+```
+pipx install git+https://github.com/SecureAuthCorp/impacket.git
+```
+
+Nos deberían instalar las siguientes herramientas
+```
+  installed package impacket 0.13.0.dev0+20241024.90011.835e175, installed using Python 3.12.7
+  These apps are now globally available
+    - DumpNTLMInfo.py
+    - Get-GPPPassword.py
+    - GetADComputers.py
+    - GetADUsers.py
+    - GetLAPSPassword.py
+    - GetNPUsers.py
+    - GetUserSPNs.py
+    - addcomputer.py
+    - atexec.py
+    - changepasswd.py
+    - dacledit.py
+    - dcomexec.py
+    - describeTicket.py
+    - dpapi.py
+    - esentutl.py
+    - exchanger.py
+    - findDelegation.py
+    - getArch.py
+    - getPac.py
+    - getST.py
+    - getTGT.py
+    - goldenPac.py
+    - karmaSMB.py
+    - keylistattack.py
+    - kintercept.py
+    - lookupsid.py
+    - machine_role.py
+    - mimikatz.py
+    - mqtt_check.py
+    - mssqlclient.py
+    - mssqlinstance.py
+    - net.py
+    - netview.py
+    - ntfs-read.py
+    - ntlmrelayx.py
+    - owneredit.py
+    - ping.py
+    - ping6.py
+    - psexec.py
+    - raiseChild.py
+    - rbcd.py
+    - rdp_check.py
+    - reg.py
+    - registry-read.py
+    - rpcdump.py
+    - rpcmap.py
+    - sambaPipe.py
+    - samrdump.py
+    - secretsdump.py
+    - services.py
+    - smbclient.py
+    - smbexec.py
+    - smbserver.py
+    - sniff.py
+    - sniffer.py
+    - split.py
+    - ticketConverter.py
+    - ticketer.py
+    - tstool.py
+    - wmiexec.py
+    - wmipersist.py
+    - wmiquery.py
+```
+
+
+Generalmente con instalar bloodhound nos instalará neo4j
+```
+sudo pacman -S bloodhound
+```
+
+Instalación Separada neo4j enterprise
+```
+yay -S neo4j-enterprise
+sudo systemctl start neo4j
+sudo systemctl enable neo4j
+```
+
+Si no se requiere neo4j enterprise seguir la configuración desde aquí
+Acceder a http://localhost:7474 y crear nuevo password
+Default User/Pass: neo4j/neo4j
+
+- **Nodejs y npm**
+Para algunos proyectos
+```
+sudo pacman -S nodejs npm
+```
+
+- **Instalación de SecList**
+Primero clonamos el proyecto en /usr/share
+Arreglamos los permisos para los usuarios
+```
+sudo git clone https://github.com/danielmiessler/SecLists /usr/share/seclists
+sudo chmod -R o+r /usr/share/seclists
+```
+
+- **Listas de N0v0k0**
+TODO
+
+- **Hydra y Ghydra**
+TODO
+
+- **Burpsuite**
+TODO
+
+
+📒 TODO
+-----
+Pendientes de instalación de listas, Hydra y similares
+Ver también la instación librerías de python scapy y similares httpserver
+Crear scripts para automatizar algunas tareas
 
 📒 Notas finales
 -----
-Instalar varias herramientas; añadir listado de herramientas comunes nmap, crackmapexec, bloodhound, etc...
