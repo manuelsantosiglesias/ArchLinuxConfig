@@ -474,8 +474,6 @@ TODO
 - **Hydra y Ghydra**
 TODO
 
-- **Burpsuite**
-TODO
 
 
 📒 TODO
